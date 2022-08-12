@@ -1,3 +1,7 @@
+.products {
+  margin: 80px 0;
+}
+
 .search-box {
   align-items: center;
   border: 2px solid #0000008a;
@@ -7,7 +11,7 @@
   font-size: 18px;
   height: 45px;
   justify-content: space-between;
-  margin: 50px 0;
+  margin-bottom: 50px;
   padding: 0 10px;
 
   input {
@@ -16,13 +20,14 @@
     height: 100%;
     width: 90%;
 
-    &:focus, &:active {
+    &:focus,
+    &:active {
       outline: none;
     }
   }
 
   i {
-  font-size: 24px;
-  font-weight: 600;
+    font-size: 24px;
+    font-weight: 600;
   }
 }

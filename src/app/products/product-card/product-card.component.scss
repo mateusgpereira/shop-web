@@ -1,5 +1,4 @@
 .product-card {
-
   p {
     color: #0000008a;
   }
@@ -9,10 +8,15 @@
     font-size: 1.5rem;
     padding: 20px 0;
     margin: 0 auto;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
   }
 
   img {
-    padding: 0 20px;
+    padding: 10px 20px;
   }
 
   .product-description {
