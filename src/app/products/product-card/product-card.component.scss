@@ -1,0 +1,35 @@
+.product-card {
+
+  p {
+    color: #0000008a;
+  }
+
+  .product-title {
+    color: #333;
+    font-size: 1.5rem;
+    padding: 20px 0;
+    margin: 0 auto;
+  }
+
+  img {
+    padding: 0 20px;
+  }
+
+  .product-description {
+    text-align: left;
+    padding-left: 10px;
+    width: 100%;
+  }
+
+  .btn-group {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+
+    button {
+      width: 40%;
+      height: 50px;
+    }
+  }
+}
