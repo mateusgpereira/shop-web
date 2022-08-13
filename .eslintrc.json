@@ -19,7 +19,8 @@
         "plugin:@angular-eslint/template/process-inline-templates",
         "airbnb-base",
         "airbnb-typescript/base",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "plugin:@ngrx/recommended-requiring-type-checking"
       ],
       "rules": {
         "@angular-eslint/directive-selector": [
@@ -38,13 +39,17 @@
             "style": "kebab-case"
           }
         ],
-        "semi": ["error", "never"],
+        "semi": [
+          "error",
+          "never"
+        ],
         "@typescript-eslint/semi": "off",
         "@typescript-eslint/comma-dangle": "off",
         "import/no-unresolved": "off",
         "import/prefer-default-export": "off",
         "class-methods-use-this": "off",
-        "no-underscore-dangle": "off"
+        "no-underscore-dangle": "off",
+        "@ngrx/no-typed-global-store": "off"
       }
     },
     {

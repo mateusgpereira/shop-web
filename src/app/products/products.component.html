@@ -7,5 +7,7 @@
       </div>
     </div>
   </div>
-  <app-product-list></app-product-list>
+  <ng-container *ngIf="products$ | async as products">
+    <app-product-list [products]="products"></app-product-list>
+  </ng-container>
 </section>
