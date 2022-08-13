@@ -1,5 +1,5 @@
 import { ActionReducerMap } from '@ngrx/store'
-import { cartReducer } from '../cart/reducers'
+import { cartReducer } from '../cart/store/reducers'
 import { ProductEffects } from '../products/store/effects'
 import { productReducer } from '../products/store/reducers'
 import { AppState } from './types'

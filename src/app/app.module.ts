@@ -6,6 +6,8 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatIconModule } from '@angular/material/icon'
+import { MatBadgeModule } from '@angular/material/badge'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { EffectsModule } from '@ngrx/effects'
@@ -21,10 +23,17 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
 import { ProductListComponent } from './products/product-list/product-list.component'
 import { ProductsComponent } from './products/products.component'
 import { appReducer, effects } from './store/state'
-import { CartComponent } from './cart/cart.component';
+import { CartComponent } from './cart/cart.component'
 import { SidenavComponent } from './sidenav/sidenav.component'
 
-const materialModules = [MatToolbarModule, MatCardModule, MatButtonModule, MatSidenavModule]
+const materialModules = [
+  MatToolbarModule,
+  MatCardModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatBadgeModule
+]
 
 @NgModule({
   declarations: [
