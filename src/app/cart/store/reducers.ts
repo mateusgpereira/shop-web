@@ -1,9 +1,10 @@
 import { createReducer, on } from '@ngrx/store'
-import { addToCart } from './actions'
-import { CartItem, CartState } from './types'
+import { addToCart, removeFromCart } from './actions'
+import { CartState } from './types'
+import { addToCartReducer, removeFromCartReducer } from './reducer-functions'
 
 const initialState: CartState = {
-  cart: {
+  shopCart: {
     items: [],
     total: 0
   }
@@ -11,16 +12,6 @@ const initialState: CartState = {
 
 export const cartReducer = createReducer(
   initialState,
-  on(addToCart, (state, payload) => {
-    const items: CartItem[] = [...state.cart.items]
-    items.push(payload.item)
-
-    return {
-      ...state,
-      cart: {
-        items,
-        total: items.length
-      }
-    }
-  })
+  on(addToCart, addToCartReducer),
+  on(removeFromCart, removeFromCartReducer)
 )

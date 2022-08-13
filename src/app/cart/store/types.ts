@@ -1,5 +1,7 @@
+import { Product } from 'src/app/products/store/types'
+
 export interface CartItem {
-  productId: number
+  product: Product
   quantity: number
 }
 
@@ -9,5 +11,5 @@ export interface Cart {
 }
 
 export interface CartState {
-  cart: Cart
+  shopCart: Cart
 }

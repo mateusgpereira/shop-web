@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { MatDrawer } from '@angular/material/sidenav'
 import { SidenavService } from './sidenav.service'
 
@@ -7,7 +7,7 @@ import { SidenavService } from './sidenav.service'
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent implements AfterViewInit, OnInit {
+export class SidenavComponent implements OnInit {
   @ViewChild('drawer')
   sideNav!: MatDrawer
 
@@ -17,10 +17,6 @@ export class SidenavComponent implements AfterViewInit, OnInit {
     this.sidenavService.toggleListener.subscribe(() => {
       this.sideNavTooggle()
     })
-  }
-
-  ngAfterViewInit(): void {
-    console.log(this.sideNav)
   }
 
   sideNavTooggle(): void {
