@@ -1,6 +1,6 @@
 <section class="cart">
   <ng-container *ngrxLet="cart$ as cart">
-    <ng-container *ngIf="cart.items.length > 0">
+    <ng-container *ngIf="cart.items.length > 0; else emptyCart">
       <ul class="cart-list">
         <li class="cart-line" *ngFor="let item of cart.items">
           <div class="cart-item">
@@ -32,4 +32,10 @@
       </div>
     </ng-container>
   </ng-container>
+  <ng-template #emptyCart>
+    <div class="cart-empty">
+      <p>Your shopping cart is empty. Add a few products and come back here :)</p>
+      <i class="fa-solid fa-cart-arrow-down"></i>
+    </div>
+  </ng-template>
 </section>

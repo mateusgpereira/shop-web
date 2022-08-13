@@ -59,3 +59,22 @@
     color: $primary;
   }
 }
+
+
+.cart-empty {
+  color: $app-grey;
+  font-size: 4rem;
+  height: 200px;
+  text-align: center;
+  width: 200px;
+
+  p {
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  i {
+    margin-top: 20px;
+  }
+
+}

@@ -1,6 +1,13 @@
 <mat-drawer-container>
   <ng-content select="[app-sidenav]"></ng-content>
-  <mat-drawer #drawer class="app-sidenav" mode="over" position="end" autoFocus="false">
+  <mat-drawer
+    #drawer
+    class="app-sidenav"
+    mode="over"
+    position="end"
+    autoFocus="false"
+    opened="true"
+  >
     <ng-content select="[app-sidenav-content]"></ng-content>
   </mat-drawer>
 </mat-drawer-container>
