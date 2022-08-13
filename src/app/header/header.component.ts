@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
+import { SidenavService } from '../sidenav/sidenav.service'
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  constructor() {}
+export class HeaderComponent {
+  constructor(private sidenavService: SidenavService) {}
 
-  ngOnInit(): void {}
+  sideNavTooggle(): void {
+    this.sidenavService.toggle()
+  }
 }
