@@ -1,6 +1,6 @@
 <mat-card class="product-card">
   <mat-card-header>
-    <p class="product-title">{{ product.name }}</p>
+    <p class="product-title cut-text">{{ product.name }}</p>
   </mat-card-header>
   <img mat-card-image [src]="product.imageUrl || fallbackImage" alt="Photo of a Shiba Inu" />
   <mat-card-content>
@@ -9,7 +9,7 @@
   <mat-card-actions>
     <div class="btn-group">
       <button mat-stroked-button color="primary">Details</button>
-      <button mat-flat-button color="primary">Add to Cart</button>
+      <button mat-flat-button color="primary" (click)="onAddToCart(product)">Add to Cart</button>
     </div>
   </mat-card-actions>
 </mat-card>

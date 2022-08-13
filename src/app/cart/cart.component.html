@@ -1,3 +1,41 @@
-<div class="cart-container">
-  <p>Cart works</p>
-</div>
+<section class="cart">
+  <ng-container *ngrxLet="cart$ as cart">
+    <ng-container *ngIf="cart.items.length > 0; else emptyCart">
+      <ul class="cart-list">
+        <li class="cart-line" *ngFor="let item of cart.items">
+          <div class="cart-item">
+            <button
+              mat-icon-button
+              aria-label="Remove item from card button"
+              color="warn"
+              (click)="onRemoveItem(item.product.id)"
+            >
+              <mat-icon inline="true">delete</mat-icon>
+            </button>
+            <img src="{{ item.product.imageUrl }}" alt="Product Avatar" />
+            <p class="cart-item-name cut-text">
+              {{ item.product.name }}
+            </p>
+            <span
+              matBadge="{{ item.quantity }}"
+              matBadgeOverlap="false"
+              matBadgeColor="primary"
+              matBadgeHidden="{{ item.quantity < 2 }}"
+            ></span>
+            <span class="price">{{ item.product.price * item.quantity | number: '1.2-2' }} €</span>
+          </div>
+        </li>
+      </ul>
+      <div class="cart-total">
+        <p>Total:</p>
+        <span>{{ cart.total | number: '1.2-2' }} €</span>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-template #emptyCart>
+    <div class="cart-empty">
+      <p>Your shopping cart is empty. Add a few products and come back here :)</p>
+      <i class="fa-solid fa-cart-arrow-down"></i>
+    </div>
+  </ng-template>
+</section>

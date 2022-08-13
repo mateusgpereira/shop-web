@@ -1,3 +1,80 @@
-.cart-sidenav {
-  height: 500px;
+@import "src/assets/styles/colors";
+
+.cart {
+  padding: 25px;
+  text-align: left;
+}
+
+.cart-item {
+  align-items: center;
+  border-bottom: 1px solid #0000001a;
+  display: flex;
+  font-size: 1rem;
+  justify-content: flex-start;
+  padding: 15px 0;
+  width: 430px;
+
+  button {
+    font-size: 1.5rem;
+  }
+
+  img {
+    border-radius: 50%;
+    height: 45px;
+    margin-right: 15px;
+    width: 45px;
+  }
+
+  .cart-item-name {
+    color: $app-grey;
+    max-width: 225px;
+    margin-right: 5px;
+  }
+
+  .price {
+    color: $primary;
+    display: block;
+    font-weight: 500;
+    margin-left: auto;
+  }
+}
+
+.cart-total {
+  align-items: center;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 500;
+  justify-content: flex-end;
+  margin-top: 30px;
+
+
+  p {
+    color: $app-grey;
+    margin-right: 5px;
+    margin-bottom: 1px !important
+  }
+
+  span {
+    border-radius: 4px;
+    color: $primary;
+  }
+}
+
+
+.cart-empty {
+  color: $app-grey;
+  font-size: 4rem;
+  height: 200px;
+  text-align: center;
+  width: 200px;
+
+  p {
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  i {
+    margin-top: 20px;
+  }
+
 }
