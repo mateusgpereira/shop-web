@@ -15,6 +15,7 @@ export class SidenavService {
   }
 
   public toggle(): void {
-    this.toggleListener.next(!this.isOpen)
+    this.isOpen = !this.isOpen
+    this.toggleListener.next(this.isOpen)
   }
 }
