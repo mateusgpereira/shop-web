@@ -19,7 +19,7 @@ export class ProductEffects {
     )
   })
 
-  handleErrora$ = createEffect(
+  handleError$ = createEffect(
     () => {
       return this.actions$.pipe(
         ofType(handleProductStateError),

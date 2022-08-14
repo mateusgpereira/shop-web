@@ -1,10 +1,10 @@
-import { SAMPLE_PRODUCTS } from 'src/tests/data'
+import { getSampleProducts } from 'src/tests/data'
 import { addToCartReducer, removeFromCartReducer } from './reducer-functions'
 import { CartState } from './types'
 
 describe('CartReducers', () => {
   let state: CartState
-  const products = [...SAMPLE_PRODUCTS]
+  const products = getSampleProducts()
 
   beforeEach(() => {
     const [productOne, , productThree] = products

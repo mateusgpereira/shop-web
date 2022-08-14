@@ -1,5 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core'
 import { TestBed } from '@angular/core/testing'
+import { By } from '@angular/platform-browser'
 import { RouterTestingModule } from '@angular/router/testing'
 import { AppComponent } from './app.component'
 
@@ -18,18 +19,13 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy()
   })
 
-  it(`should have as title 'shop-web'`, () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app.title).toEqual('shop-web')
-  })
-
-  it.skip('should render title', () => {
+  it('should render header, home and footer components', () => {
     const fixture = TestBed.createComponent(AppComponent)
     fixture.detectChanges()
-    const compiled = fixture.nativeElement as HTMLElement
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'shop-web app is running!'
-    )
+    const el = fixture.debugElement
+
+    expect(el.query(By.css('app-header'))).toBeTruthy()
+    expect(el.query(By.css('app-home'))).toBeTruthy()
+    expect(el.query(By.css('app-footer'))).toBeTruthy()
   })
 })

@@ -1,8 +1,8 @@
-import { SAMPLE_PRODUCTS } from 'src/tests/data'
+import { getSampleProducts } from 'src/tests/data'
 import { sumPriceTotal } from './helpers'
 
 describe('CartHelpers', () => {
-  const proucts = [...SAMPLE_PRODUCTS]
+  const proucts = getSampleProducts()
 
   it('should sumTotalPrice and return the value 200', () => {
     const result = sumPriceTotal([

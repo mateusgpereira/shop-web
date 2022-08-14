@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing'
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
-import { SAMPLE_PRODUCTS } from 'src/tests/data'
+import { getSampleProducts } from 'src/tests/data'
 import { ProductService } from './product.service'
 import { Product } from '../products/store/types'
 
@@ -20,7 +20,7 @@ describe('ProductService', () => {
   })
 
   it('should dispatch request to fetch products', () => {
-    const products: Product[] = SAMPLE_PRODUCTS.slice(0, 2)
+    const products: Product[] = getSampleProducts().slice(0, 2)
 
     service.fetchProducts().subscribe((response) => {
       expect(response).not.toBeNull()

@@ -3,7 +3,7 @@ import { ComponentFixture, fakeAsync, flush, TestBed } from '@angular/core/testi
 import { By } from '@angular/platform-browser'
 import { LetModule } from '@ngrx/component'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
-import { SAMPLE_PRODUCTS } from 'src/tests/data'
+import { getSampleProducts } from 'src/tests/data'
 
 import { ProductsComponent } from './products.component'
 import { selectProductsList } from './store/selectors'
@@ -37,7 +37,7 @@ describe('ProductsComponent', () => {
 
   beforeEach(() => {
     store = TestBed.inject(MockStore)
-    productList = [...SAMPLE_PRODUCTS]
+    productList = getSampleProducts()
     store.overrideSelector(selectProductsList, productList)
     store.refreshState()
   })
