@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
-import { catchError, map, of, switchMap } from 'rxjs'
+import { Action } from '@ngrx/store'
+import { catchError, map, Observable, of, switchMap } from 'rxjs'
 import { ErrorHandlerService } from 'src/app/services/error-handler.service'
 import { ProductService } from 'src/app/services/product.service'
-import { fetchProducts, handleProductStateError, setProducts } from './actions'
+import { fetchProducts, handleProductStateError, searchProducts, setProducts } from './actions'
 
 @Injectable()
 export class ProductEffects {
@@ -13,7 +14,21 @@ export class ProductEffects {
       switchMap(() => {
         return this.productService.fetchProducts().pipe(
           map((response) => setProducts({ productList: response })),
-          catchError((error) => of(handleProductStateError({ error })))
+          catchError(this.handleReponseError)
+        )
+      })
+    )
+  })
+
+  searchProducts$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(searchProducts),
+      switchMap((action) => {
+        return this.productService.searchProducts(action.name, action.page, action.limit).pipe(
+          map((response) => {
+            return setProducts({ productList: response.content })
+          }),
+          catchError(this.handleReponseError)
         )
       })
     )
@@ -36,4 +51,8 @@ export class ProductEffects {
     private actions$: Actions,
     private errorHandlerService: ErrorHandlerService
   ) {}
+
+  public handleReponseError(error: any): Observable<Action> {
+    return of(handleProductStateError({ error }))
+  }
 }

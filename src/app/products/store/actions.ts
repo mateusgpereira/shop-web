@@ -8,6 +8,11 @@ export const setProducts = createAction(
   props<{ productList: Product[] }>()
 )
 
+export const searchProducts = createAction(
+  '[PRODUCT] search products',
+  props<{ name: string; page?: number; limit?: number }>()
+)
+
 export const handleProductStateError = createAction(
   '[PRODUCT] handle product error',
   props<{ error: any }>()
