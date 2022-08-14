@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
 import { MatDrawer } from '@angular/material/sidenav'
-import { SidenavService } from './sidenav.service'
+import { SidenavService } from '../services/sidenav.service'
 
 @Component({
   selector: 'app-sidenav',

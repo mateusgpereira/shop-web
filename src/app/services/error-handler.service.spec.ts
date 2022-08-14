@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing'
 
-import { SidenavService } from './sidenav.service'
+import { ErrorHandlerService } from './error-handler.service'
 
-describe('SidenavService', () => {
-  let service: SidenavService
+describe('ErrorHandlerService', () => {
+  let service: ErrorHandlerService
 
   beforeEach(() => {
     TestBed.configureTestingModule({})
-    service = TestBed.inject(SidenavService)
+    service = TestBed.inject(ErrorHandlerService)
   })
 
   it('should be created', () => {

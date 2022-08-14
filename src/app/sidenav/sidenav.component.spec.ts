@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { SidenavComponent } from './sidenav.component'
@@ -8,7 +9,8 @@ describe('SidenavComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SidenavComponent]
+      declarations: [SidenavComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents()
 
     fixture = TestBed.createComponent(SidenavComponent)

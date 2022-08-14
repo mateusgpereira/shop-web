@@ -1,13 +1,11 @@
-<section class="products">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="search-box">
-        <input type="text" minlength="5" required />
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="search-box">
+      <input type="text" minlength="5" required />
+      <i class="fa-solid fa-magnifying-glass"></i>
     </div>
   </div>
-  <ng-container *ngIf="products$ | async as products">
-    <app-product-list [products]="products"></app-product-list>
-  </ng-container>
-</section>
+</div>
+<ng-container *ngIf="products$ | async as products">
+  <app-product-list [products]="products"></app-product-list>
+</ng-container>
