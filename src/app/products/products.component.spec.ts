@@ -1,5 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core'
 import { ComponentFixture, fakeAsync, flush, TestBed } from '@angular/core/testing'
+import { FormsModule } from '@angular/forms'
 import { By } from '@angular/platform-browser'
 import { LetModule } from '@ngrx/component'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
@@ -24,7 +25,7 @@ describe('ProductsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LetModule],
+      imports: [LetModule, FormsModule],
       declarations: [ProductsComponent],
       providers: [provideMockStore({ initialState })],
       schemas: [NO_ERRORS_SCHEMA]
@@ -69,4 +70,36 @@ describe('ProductsComponent', () => {
     expect(store.dispatch).toBeCalledTimes(1)
     expect(store.dispatch).toBeCalledWith({ type: '[PRODUCT] fecth products' })
   }))
+
+  it('should not dispatch action on call to onSearchSubmit with empty searchText', () => {
+    jest.spyOn(store, 'dispatch').mockImplementation()
+    component.onSearchSubmit()
+
+    expect(store.dispatch).not.toBeCalled()
+  })
+
+  it('should dispatch searchProducts action onSearchSubmit', () => {
+    jest.spyOn(store, 'dispatch').mockImplementation()
+
+    const searchInputEl: HTMLInputElement = fixture.debugElement.query(
+      By.css('form .search-box input[name="searchText"]')
+    ).nativeElement
+
+    searchInputEl.value = 'smartwatch'
+    searchInputEl.dispatchEvent(new Event('input'))
+    fixture.detectChanges()
+
+    const submitButtonEl: HTMLButtonElement = fixture.debugElement.query(
+      By.css('form .search-box button')
+    ).nativeElement
+    submitButtonEl.click()
+    fixture.detectChanges()
+
+    expect(component.searchText).toBe('smartwatch')
+    expect(store.dispatch).toBeCalledTimes(1)
+    expect(store.dispatch).toBeCalledWith({
+      name: 'smartwatch',
+      type: '[PRODUCT] search products'
+    })
+  })
 })

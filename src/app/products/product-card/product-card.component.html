@@ -2,7 +2,9 @@
   <mat-card-header>
     <p class="product-title cut-text">{{ product.name }}</p>
   </mat-card-header>
-  <img mat-card-image [src]="product.imageUrl || fallbackImage" alt="Photo of a Shiba Inu" />
+  <div class="img-container">
+    <img mat-card-image [src]="product.imageUrl || fallbackImage" alt="Photo of a Shiba Inu" />
+  </div>
   <mat-card-content>
     <p class="product-description">Product Description</p>
   </mat-card-content>

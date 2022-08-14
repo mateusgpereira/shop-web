@@ -15,6 +15,7 @@ import { StoreModule } from '@ngrx/store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from 'src/environments/environment'
 import { LetModule } from '@ngrx/component'
+import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { FooterComponent } from './footer/footer.component'
@@ -58,7 +59,8 @@ const materialModules = [
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     EffectsModule.forRoot(effects),
-    LetModule
+    LetModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,8 +11,17 @@
     width: 100%;
   }
 
-  img {
-    padding: 10px 20px;
+  .img-container {
+    align-items: center;
+    display: flex;
+    height: 320px;
+    justify-content: center;
+    padding: 10px 30px;
+
+    img {
+      height: 90%;
+      max-width: 360px;
+    }
   }
 
   .product-description {
