@@ -1,3 +1,5 @@
+@import "src/assets/styles/colors";
+
 .product-card {
   p {
     color: #0000008a;
@@ -40,5 +42,17 @@
       width: 40%;
       height: 50px;
     }
+  }
+}
+
+::ng-deep .snackbar-success {
+  background-color: rgba(103, 58, 183, 0.9);
+  color: #FFF;
+  text-align: center;
+
+  .mat-simple-snack-bar-content {
+    display: block;
+    font-weight: 500;
+    margin: 0 auto;
   }
 }

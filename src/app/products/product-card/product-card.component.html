@@ -10,7 +10,15 @@
   </mat-card-content>
   <mat-card-actions>
     <div class="btn-group">
-      <button mat-stroked-button color="primary">Details</button>
+      <button
+        mat-stroked-button
+        color="primary"
+        #tooltip="matTooltip"
+        matTooltip="I don't work for now"
+        matTooltipPosition="above"
+      >
+        Details
+      </button>
       <button mat-flat-button color="primary" (click)="onAddToCart(product)">Add to Cart</button>
     </div>
   </mat-card-actions>

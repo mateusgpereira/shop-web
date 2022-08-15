@@ -13,6 +13,8 @@ services:
       - MYSQL_ROOT_HOST=%
     ports:
       - "3306:3306"
+    volumes:
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
 
   shop-api:
     image: shop-api:latest

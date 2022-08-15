@@ -1,7 +1,16 @@
 <header>
   <mat-toolbar color="primary">
     <h1>Smart Hardware Shop</h1>
-    <button class="btn-cart" type="button" mat-button (click)="sideNavTooggle()">
+    <button
+      class="btn-cart"
+      type="button"
+      mat-button
+      (click)="sideNavTooggle()"
+      matBadge="{{ totalCartItems }}"
+      matBadgeColor="accent"
+      matBadgeHidden="{{ totalCartItems < 1 }}"
+      matBadgePosition="below before"
+    >
       <mat-icon
         aria-hidden="false"
         aria-label="Shopping cart icon"
