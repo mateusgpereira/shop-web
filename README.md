@@ -40,6 +40,11 @@ Bring up the docker service with docker-compose:
 docker-compose up -d
 ```  
 
+After the completes (first time it make take some time until download the required dependencies),  
+The application is gonna be accessible in the http://localhost address.  
+
+![Shop Demo Page](media/shop_demo.png) 
+
 <br>  
 
 ## Development server
