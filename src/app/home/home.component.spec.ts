@@ -23,7 +23,7 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy()
 
     const el = fixture.debugElement
-    const productsEl = el.query(By.css('.products .container-xl app-products'))
+    const productsEl = el.query(By.css('app-products'))
     const cartEl: HTMLElement = el.query(By.css('app-sidenav > app-cart')).nativeElement
 
     expect(productsEl).toBeTruthy()

@@ -27,6 +27,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { ProductsComponent } from './products/products.component'
 import { SidenavComponent } from './sidenav/sidenav.component'
 import { appReducer, effects } from './store/state'
+import { BannerNewsComponent } from './banner-news/banner-news.component'
 
 const materialModules = [
   MatToolbarModule,
@@ -47,7 +48,8 @@ const materialModules = [
     ProductsComponent,
     ProductCardComponent,
     CartComponent,
-    SidenavComponent
+    SidenavComponent,
+    BannerNewsComponent
   ],
   imports: [
     BrowserModule,

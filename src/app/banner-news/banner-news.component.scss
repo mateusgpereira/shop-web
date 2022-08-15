@@ -1,0 +1,39 @@
+@import "src/assets/styles/colors";
+
+.news-banner {
+  background-color: $primary;
+  width: 100%;
+
+  .carousel-inner {
+    padding-bottom: 80px;
+  }
+
+  .carousel-inner.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  h2 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  .news-banner-image {
+    height: 650px;
+    width: 100%;
+  }
+
+  .carousel.carousel-dark .carousel-indicators button {
+    background-color: #fff !important;
+  }
+}
+
+
+@media screen and (max-width: 992px) {
+  .news-banner {
+    .news-banner-image {
+      height: 516px;
+    }
+  }
+}
