@@ -1,5 +1,7 @@
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatTooltipModule } from '@angular/material/tooltip'
 import { By } from '@angular/platform-browser'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
 import { getSampleProducts } from 'src/tests/data'
@@ -14,8 +16,9 @@ describe('ProductCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [MatTooltipModule],
       declarations: [ProductCardComponent],
-      providers: [provideMockStore()],
+      providers: [provideMockStore(), { provide: MatSnackBar, useValue: { open: jest.fn() } }],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents()
 
@@ -76,7 +79,7 @@ describe('ProductCardComponent', () => {
     )
 
     expect(actionButtons).toBeTruthy()
-    expect(actionButtons[0].nativeElement.textContent).toBe('Details')
+    expect(actionButtons[0].nativeElement.textContent).toContain('Details')
     expect(actionButtons[0].nativeElement.hasAttribute('mat-stroked-button')).toBe(true)
     expect(actionButtons[0].nativeElement.getAttribute('color')).toBe('primary')
     expect(actionButtons[1].nativeElement.textContent).toBe('Add to Cart')
@@ -87,6 +90,9 @@ describe('ProductCardComponent', () => {
   it('should dispatch action addToCart on button click', () => {
     const store = TestBed.inject(MockStore)
     jest.spyOn(store, 'dispatch').mockImplementation()
+
+    const snackBarMock = TestBed.inject(MatSnackBar)
+    jest.spyOn(snackBarMock, 'open').mockImplementation()
 
     const [product] = productList
     component.product = product
@@ -110,6 +116,12 @@ describe('ProductCardComponent', () => {
         price: 50
       },
       type: '[CART] add product to cart'
+    })
+
+    expect(snackBarMock.open).toBeCalledTimes(1)
+    expect(snackBarMock.open).toBeCalledWith('Item added to cart!', undefined, {
+      duration: 3000,
+      panelClass: 'snackbar-success'
     })
   })
 })
