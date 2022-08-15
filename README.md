@@ -18,7 +18,7 @@ It has a backend in Java 17 using Spring Boot: [ShopApi](https://github.com/mate
 
 ### Requirements
 > In order to run this application you need to have [docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/) installed.  
-> First you need to build the backend, follow the instructions in the project: [ShopApi](https://github.com/mateusgpereira/shop-api#build)  
+> First you need to build the backend, follow the instructions in the **build** section of the project: [ShopApi](https://github.com/mateusgpereira/shop-api#build)  
 
 After have built the backend image, you can run this app with the following steps:  
 
@@ -31,13 +31,13 @@ git clone https://github.com/mateusgpereira/shop-web.git
 Enter the project folder:
 
 ```shell script
-cd shop-api
+cd shop-web
 ```  
 
 Bring up the docker service with docker-compose:
 
 ```shell script
-cd docker-compose up -d
+docker-compose up -d
 ```  
 
 <br>  
