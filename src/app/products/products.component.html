@@ -1,13 +1,17 @@
-<div class="row">
-  <div class="col-md-4">
-    <form #searchForm="ngForm" (ngSubmit)="onSearchSubmit()">
-      <div class="search-box">
-        <input type="text" name="searchText" [(ngModel)]="searchText" minlength="5" required />
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+<section class="products">
+  <div class="container-xl">
+    <div class="row">
+      <div class="col-md-4">
+        <form #searchForm="ngForm" (ngSubmit)="onSearchSubmit()">
+          <div class="search-box">
+            <input type="text" name="searchText" [(ngModel)]="searchText" minlength="5" required />
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
+    <ng-container *ngIf="products$ | async as products">
+      <app-product-list [products]="products"></app-product-list>
+    </ng-container>
   </div>
-</div>
-<ng-container *ngIf="products$ | async as products">
-  <app-product-list [products]="products"></app-product-list>
-</ng-container>
+</section>
